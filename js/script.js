@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       renderCategoryNav(data);
       renderMenu(data);
+      setupScrollObserver(data.length);
     });
 
   document.getElementById("cartModal").addEventListener("click", function(e) {
@@ -42,7 +43,6 @@ function renderCategoryNav(menuData) {
   });
 
   document.querySelector("header").insertAdjacentElement("afterend", nav);
-  setupScrollObserver(menuData.length);
 }
 
 let isUserClicking = false;
