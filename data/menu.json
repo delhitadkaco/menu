@@ -26,6 +26,15 @@
     ]
   },
   {
+    "category": "Pizza",
+    "items": [
+      { "name": "Classic Cheese Pizza", "description": "Cheese Pizza 8 inches serves 1-2.", "price": 329, "veg": true, "image": "cheese-pizza.jpg" },
+      { "name": "Onion Capsicum Pizza", "description": "Classic onion and capsicum toppings 8 inches serves 1-2.", "price": 349, "veg": true, "image": "onion-capsicum-pizza.jpg" },
+      { "name": "Veg Loaded Pizza", "description": "Lots of veg toppings 8 inches serves 1-2.", "price": 399, "veg": true, "image": "veg-pizza.jpg" },
+      { "name": "Paneer Tikka Pizza", "description": "Paneer Tikka along with spices 8 inches serves 1-2.", "price": 449, "veg": true, "image": "paneer-pizza.jpg" }
+   ]
+  },
+  {
     "category": "Kebabs",
     "items": [
       { "name": "Chicken Malai Seekh Kebab (2 Pieces)", "description": "Creamy grilled minced chicken seekh kebabs.", "price": 209, "veg": false, "image": "chicken-malai-seekh-kebab.jpg" },
@@ -90,15 +99,6 @@
       { "name": "Malabar Paratha", "description": "Kerala style layered paratha.", "price": 69, "veg": true, "image": "malabar-paratha.jpg" },
       { "name": "Egg Paratha", "description": "Classic Egg Paratha.", "price": 129, "veg": false, "image": "egg-paratha.jpg" }
     ]
-  },
-  {
-    "category": "Pizza",
-    "items": [
-      { "name": "Classic Cheese Pizza", "description": "Cheese Pizza 8 inches serves 1-2.", "price": 329, "veg": true, "image": "cheese-pizza.jpg" },
-      { "name": "Onion Capsicum Pizza", "description": "Classic onion and capsicum toppings 8 inches serves 1-2.", "price": 349, "veg": true, "image": "onion-capsicum-pizza.jpg" },
-      { "name": "Veg Loaded Pizza", "description": "Lots of veg toppings 8 inches serves 1-2.", "price": 399, "veg": true, "image": "veg-pizza.jpg" },
-      { "name": "Paneer Tikka Pizza", "description": "Paneer Tikka along with spices 8 inches serves 1-2.", "price": 449, "veg": true, "image": "paneer-pizza.jpg" }
-     ]
   },
   {
     "category": "Beverages",
