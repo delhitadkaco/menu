@@ -26,18 +26,69 @@ function calculateDiscount(price) {
 function renderCategoryNav(menuData) {
   const nav = document.createElement("nav");
   nav.className = "category-nav";
+
   menuData.forEach((cat, i) => {
     const btn = document.createElement("button");
     btn.textContent = cat.category;
+    btn.id = "nav-btn-" + i;
     if (i === 0) btn.classList.add("active");
     btn.onclick = () => {
-      document.querySelectorAll(".category-nav button").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+      isUserClicking = true;
+      setActiveNav(i);
       document.getElementById("cat-" + i).scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => { isUserClicking = false; }, 800);
     };
     nav.appendChild(btn);
   });
+
   document.querySelector("header").insertAdjacentElement("afterend", nav);
+  setupScrollObserver(menuData.length);
+}
+
+let isUserClicking = false;
+
+function setActiveNav(index) {
+  document.querySelectorAll(".category-nav button").forEach(b => b.classList.remove("active"));
+  const activeBtn = document.getElementById("nav-btn-" + index);
+  if (!activeBtn) return;
+  activeBtn.classList.add("active");
+  activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+}
+
+function setupScrollObserver(count) {
+  const visibleSections = new Map();
+
+  const observer = new IntersectionObserver((entries) => {
+    if (isUserClicking) return;
+
+    entries.forEach(entry => {
+      const index = parseInt(entry.target.dataset.catIndex);
+      if (entry.isIntersecting) {
+        visibleSections.set(index, entry.intersectionRatio);
+      } else {
+        visibleSections.delete(index);
+      }
+    });
+
+    if (visibleSections.size === 0) return;
+
+    // Highlight the topmost visible section
+    const topmost = Math.min(...visibleSections.keys());
+    setActiveNav(topmost);
+
+  }, {
+    // Fire when section enters just below the sticky nav bar
+    rootMargin: "-55px 0px -60% 0px",
+    threshold: 0
+  });
+
+  for (let i = 0; i < count; i++) {
+    const el = document.getElementById("cat-" + i);
+    if (el) {
+      el.dataset.catIndex = i;
+      observer.observe(el);
+    }
+  }
 }
 
 function renderMenu(menuData) {
