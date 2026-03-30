@@ -81,14 +81,6 @@
         "veg": true,
         "image": "punjabi-chole-full.jpg",
         "available": true
-      },
-      {
-        "name": "Tawa Chicken Seekh Kebab",
-        "description": "Succulent minced chicken seekh kebabs simmered on a hot tawa in a rich, buttery tomato based gravy, infused with aromatic Indian spices.",
-        "price": 299,
-        "veg": false,
-        "image": "tawa-chicken-seekh-kebab.jpg",
-        "available": true
       }
     ]
   },
@@ -142,6 +134,14 @@
         "veg": false,
         "image": "mutton-rogan-josh-full.jpg",
         "available": false
+      },
+      {
+        "name": "Tawa Chicken Seekh Kebab",
+        "description": "Succulent minced chicken seekh kebabs simmered on a hot tawa in a rich, buttery tomato based gravy, infused with aromatic Indian spices.",
+        "price": 299,
+        "veg": false,
+        "image": "tawa-chicken-seekh-kebab.jpg",
+        "available": true
       }
     ]
   },
