@@ -7,70 +7,80 @@
         "description": "Soft paneer cubes simmered in rich buttery tomato gravy finished with cream.",
         "price": 249,
         "veg": true,
-        "image": "paneer-butter-masala-half.jpg"
+        "image": "paneer-butter-masala-half.jpg",
+        "available": true
       },
       {
         "name": "Paneer Butter Masala (Full)",
         "description": "Soft paneer cubes simmered in rich buttery tomato gravy finished with cream.",
         "price": 349,
         "veg": true,
-        "image": "paneer-butter-masala-full.jpg"
+        "image": "paneer-butter-masala-full.jpg",
+        "available": true
       },
       {
         "name": "Dal Makhani (Half)",
         "description": "Slow cooked black lentils in creamy tomato gravy.",
         "price": 179,
         "veg": true,
-        "image": "dal-makhani-half.jpg"
+        "image": "dal-makhani-half.jpg",
+        "available": true
       },
       {
         "name": "Dal Makhani (Full)",
         "description": "Slow cooked black lentils in creamy tomato gravy.",
         "price": 249,
         "veg": true,
-        "image": "dal-makhani-full.jpg"
+        "image": "dal-makhani-full.jpg",
+        "available": true
       },
       {
         "name": "Kadai Paneer (Half)",
         "description": "Paneer cooked in bold kadai gravy with capsicum and spices.",
         "price": 249,
         "veg": true,
-        "image": "kadai-paneer-half.jpg"
+        "image": "kadai-paneer-half.jpg",
+        "available": true
       },
       {
         "name": "Kadai Paneer (Full)",
         "description": "Paneer cooked in bold kadai gravy with capsicum and spices.",
         "price": 349,
         "veg": true,
-        "image": "kadai-paneer-full.jpg"
+        "image": "kadai-paneer-full.jpg",
+        "available": true
       },
       {
         "name": "Punjabi Rajma (Half)",
         "description": "Slow cooked rajma beans in rich Punjabi gravy.",
         "price": 139,
         "veg": true,
-        "image": "punjabi-rajma-half.jpg"
+        "image": "punjabi-rajma-half.jpg",
+        "available": true
       },
       {
         "name": "Punjabi Rajma (Full)",
         "description": "Slow cooked rajma beans in rich Punjabi gravy.",
         "price": 199,
         "veg": true,
-        "image": "punjabi-rajma-full.jpg"
+        "image": "punjabi-rajma-full.jpg",
+        "available": true
       },
       {
         "name": "Punjabi Chole (Half)",
         "description": "Authentic Punjabi chole in robust masala gravy.",
         "price": 139,
         "veg": true,
-        "image": "punjabi-chole-half.jpg"
+        "image": "punjabi-chole-half.jpg",
+        "available": true
       },
       {
         "name": "Punjabi Chole (Full)",
         "description": "Authentic Punjabi chole in robust masala gravy.",
         "price": 199,
         "veg": true,
-        "image": "punjabi-chole-full.jpg"
+        "image": "punjabi-chole-full.jpg",
+        "available": true
       }
     ]
   },
@@ -82,42 +92,48 @@
         "description": "Tender boneless chicken in rich buttery tomato gravy.",
         "price": 499,
         "veg": false,
-        "image": "butter-chicken-boneless-half.jpg"
+        "image": "butter-chicken-boneless-half.jpg",
+        "available": true
       },
       {
         "name": "Butter Chicken (Boneless) (Full)",
         "description": "Tender boneless chicken in rich buttery tomato gravy.",
         "price": 699,
         "veg": false,
-        "image": "butter-chicken-boneless-full.jpg"
+        "image": "butter-chicken-boneless-full.jpg",
+        "available": true
       },
       {
         "name": "Chicken Karahi (Boneless) (Half)",
         "description": "Boneless chicken simmered in bold karahi masala.",
         "price": 399,
         "veg": false,
-        "image": "chicken-karahi-boneless-half.jpg"
+        "image": "chicken-karahi-boneless-half.jpg",
+        "available": true
       },
       {
         "name": "Chicken Karahi (Boneless) (Full)",
         "description": "Boneless chicken simmered in bold karahi masala.",
         "price": 599,
         "veg": false,
-        "image": "chicken-karahi-boneless-full.jpg"
+        "image": "chicken-karahi-boneless-full.jpg",
+        "available": true
       },
       {
         "name": "Mutton Rogan Josh (Half)",
         "description": "Slow cooked mutton in aromatic Kashmiri gravy.",
         "price": 599,
         "veg": false,
-        "image": "mutton-rogan-josh-half.jpg"
+        "image": "mutton-rogan-josh-half.jpg",
+        "available": false
       },
       {
         "name": "Mutton Rogan Josh (Full)",
         "description": "Slow cooked mutton in aromatic Kashmiri gravy.",
         "price": 799,
         "veg": false,
-        "image": "mutton-rogan-josh-full.jpg"
+        "image": "mutton-rogan-josh-full.jpg",
+        "available": false
       }
     ]
   },
@@ -129,28 +145,32 @@
         "description": "Cheese Pizza 8 inches serves 1-2.",
         "price": 329,
         "veg": true,
-        "image": "cheese-pizza.jpg"
+        "image": "cheese-pizza.jpg",
+        "available": true
       },
       {
         "name": "Onion Capsicum Pizza",
         "description": "Classic onion and capsicum toppings 8 inches serves 1-2.",
         "price": 349,
         "veg": true,
-        "image": "onion-capsicum-pizza.jpg"
+        "image": "onion-capsicum-pizza.jpg",
+        "available": true
       },
       {
         "name": "Veg Loaded Pizza",
         "description": "Lots of veg toppings 8 inches serves 1-2.",
         "price": 399,
         "veg": true,
-        "image": "veg-pizza.jpg"
+        "image": "veg-pizza.jpg",
+        "available": true
       },
       {
         "name": "Paneer Tikka Pizza",
         "description": "Paneer Tikka along with spices 8 inches serves 1-2.",
         "price": 449,
         "veg": true,
-        "image": "paneer-pizza.jpg"
+        "image": "paneer-pizza.jpg",
+        "available": true
       }
     ]
   },
@@ -162,28 +182,32 @@
         "description": "Creamy grilled minced chicken seekh kebabs.",
         "price": 209,
         "veg": false,
-        "image": "chicken-malai-seekh-kebab.jpg"
+        "image": "chicken-malai-seekh-kebab.jpg",
+        "available": true
       },
       {
         "name": "Chicken Seekh Kebab (2 Pieces)",
         "description": "Traditional grilled chicken seekh kebabs.",
         "price": 199,
         "veg": false,
-        "image": "chicken-seekh-kebab.jpg"
+        "image": "chicken-seekh-kebab.jpg",
+        "available": true
       },
       {
         "name": "Mutton Malai Seekh Kebab (2 Pieces)",
         "description": "Cream coated smoky mutton seekh kebabs.",
         "price": 249,
         "veg": false,
-        "image": "mutton-malai-seekh-kebab.jpg"
+        "image": "mutton-malai-seekh-kebab.jpg",
+        "available": true
       },
       {
         "name": "Mutton Seekh Kebab (2 Pieces)",
         "description": "Juicy grilled mutton seekh kebabs.",
         "price": 219,
         "veg": false,
-        "image": "mutton-seekh-kebab.jpg"
+        "image": "mutton-seekh-kebab.jpg",
+        "available": true
       }
     ]
   },
@@ -195,35 +219,40 @@
         "description": "Classic aloo tikki burger with signature sauce.",
         "price": 119,
         "veg": true,
-        "image": "delhi-tikki-burger.jpg"
+        "image": "delhi-tikki-burger.jpg",
+        "available": true
       },
       {
         "name": "Signature Veg Burger",
         "description": "Premium veg burger with cheese and jalapenos.",
         "price": 169,
         "veg": true,
-        "image": "signature-veg-burger.jpg"
+        "image": "signature-veg-burger.jpg",
+        "available": true
       },
       {
         "name": "Signature Paneer Burger",
         "description": "Spicy paneer patty burger with fresh veggies.",
         "price": 199,
         "veg": true,
-        "image": "signature-paneer-burger.jpg"
+        "image": "signature-paneer-burger.jpg",
+        "available": true
       },
       {
         "name": "Signature Chicken Burger",
         "description": "Juicy chicken burger with cheese and sauces.",
         "price": 199,
         "veg": false,
-        "image": "signature-chicken-burger.jpg"
+        "image": "signature-chicken-burger.jpg",
+        "available": true
       },
       {
         "name": "Tadka Chicken Seekh Burger",
         "description": "Chicken seekh kebab burger with mint chutney.",
         "price": 169,
         "veg": false,
-        "image": "tadka-chicken-seekh-burger.jpg"
+        "image": "tadka-chicken-seekh-burger.jpg",
+        "available": true
       }
     ]
   },
@@ -235,133 +264,152 @@
         "description": "Butter Chicken (Boneless) served with 1 Malabar Paratha.",
         "price": 299,
         "veg": false,
-        "image": "butter-chicken-combo.jpg"
+        "image": "butter-chicken-combo.jpg",
+        "available": true
       },
       {
         "name": "Kadhai Chicken Combo",
         "description": "Boneless Chicken Kadai served with 1 Malabar Paratha.",
         "price": 279,
         "veg": false,
-        "image": "kadhai-chicken-combo.jpg"
+        "image": "kadhai-chicken-combo.jpg",
+        "available": true
       },
       {
         "name": "Delhi Tikki Burger Combo (Regular)",
         "description": "Delhi Tikki Burger + Fries + 250ml Beverage.",
         "price": 199,
         "veg": true,
-        "image": "delhi-tikki-burger-combo-regular.jpg"
+        "image": "delhi-tikki-burger-combo-regular.jpg",
+        "available": true
       },
       {
         "name": "Delhi Tikki Burger Combo (Peri Peri)",
         "description": "Delhi Tikki Burger + Peri Fries + 250ml Beverage.",
         "price": 219,
         "veg": true,
-        "image": "delhi-tikki-burger-combo-regular.jpg"
+        "image": "delhi-tikki-burger-combo-regular.jpg",
+        "available": true
       },
       {
         "name": "Signature Veg Burger Combo (Regular)",
         "description": "Signature Veg Burger + Fries + 250ml Beverage.",
         "price": 249,
         "veg": true,
-        "image": "signature-veg-burger-combo-regular.jpg"
+        "image": "signature-veg-burger-combo-regular.jpg",
+        "available": true
       },
       {
         "name": "Signature Veg Burger Combo (Peri Peri)",
         "description": "Signature Veg Burger + Peri Fries + 250ml Beverage.",
         "price": 259,
         "veg": true,
-        "image": "signature-veg-burger-combo-regular.jpg"
+        "image": "signature-veg-burger-combo-regular.jpg",
+        "available": true
       },
       {
         "name": "Signature Paneer Burger Combo (Regular)",
         "description": "Signature Paneer Burger + Fries + 250ml Beverage.",
         "price": 279,
         "veg": true,
-        "image": "signature-paneer-burger-combo-regular.jpg"
+        "image": "signature-paneer-burger-combo-regular.jpg",
+        "available": true
       },
       {
         "name": "Signature Paneer Burger Combo (Peri Peri)",
         "description": "Signature Paneer Burger + Peri Fries + 250ml Beverage.",
         "price": 299,
         "veg": true,
-        "image": "signature-paneer-burger-combo-regular.jpg"
+        "image": "signature-paneer-burger-combo-regular.jpg",
+        "available": true
       },
       {
         "name": "Signature Chicken Burger Combo (Regular)",
         "description": "Signature Chicken Burger + Fries + 250ml Beverage.",
         "price": 279,
         "veg": false,
-        "image": "signature-chicken-burger-combo-regular.jpg"
+        "image": "signature-chicken-burger-combo-regular.jpg",
+        "available": true
       },
       {
         "name": "Signature Chicken Burger Combo (Peri Peri)",
         "description": "Signature Chicken Burger + Peri Fries + 250ml Beverage.",
         "price": 299,
         "veg": false,
-        "image": "signature-chicken-burger-combo-regular.jpg"
+        "image": "signature-chicken-burger-combo-regular.jpg",
+        "available": true
       },
       {
         "name": "Chicken Seekh Burger Combo (Regular)",
         "description": "Chicken Seekh Burger + Fries + 250ml Beverage.",
         "price": 249,
         "veg": false,
-        "image": "chicken-seekh-burger-combo-regular.jpg"
+        "image": "chicken-seekh-burger-combo-regular.jpg",
+        "available": true
       },
       {
         "name": "Chicken Seekh Burger Combo (Peri Peri)",
         "description": "Chicken Seekh Burger + Peri Fries + 250ml Beverage.",
         "price": 269,
         "veg": false,
-        "image": "chicken-seekh-burger-combo-regular.jpg"
+        "image": "chicken-seekh-burger-combo-regular.jpg",
+        "available": true
       },
       {
         "name": "Chicken Malai Seekh Kebab and Rumali Roti Combo",
         "description": "2 Chicken Malai Seekh Kebabs served with 2 Rumali Rotis.",
         "price": 229,
         "veg": false,
-        "image": "chicken-malai-seekh-rumali-combo.jpg"
+        "image": "chicken-malai-seekh-rumali-combo.jpg",
+        "available": true
       },
       {
         "name": "Chicken Seekh Kebab and Rumali Roti Combo",
         "description": "2 Chicken Seekh Kebabs served with 2 Rumali Rotis.",
         "price": 219,
         "veg": false,
-        "image": "chicken-seekh-rumali-combo.jpg"
+        "image": "chicken-seekh-rumali-combo.jpg",
+        "available": true
       },
       {
         "name": "Mutton Malai Seekh Kebab and Rumali Roti Combo",
         "description": "2 Mutton Malai Seekh Kebabs served with 2 Rumali Rotis.",
         "price": 269,
         "veg": false,
-        "image": "mutton-malai-seekh-rumali-combo.jpg"
+        "image": "mutton-malai-seekh-rumali-combo.jpg",
+        "available": true
       },
       {
         "name": "Mutton Seekh Kebab and Rumali Roti Combo",
         "description": "2 Mutton Seekh Kebabs served with 2 Rumali Rotis.",
         "price": 249,
         "veg": false,
-        "image": "mutton-seekh-rumali-combo.jpg"
+        "image": "mutton-seekh-rumali-combo.jpg",
+        "available": true
       },
       {
         "name": "Paneer Butter Masala and Malabar Paratha Combo",
         "description": "Paneer Butter Masala served with 1 Malabar Paratha.",
         "price": 289,
         "veg": true,
-        "image": "paneer-butter-masala-combo.jpg"
+        "image": "paneer-butter-masala-combo.jpg",
+        "available": true
       },
       {
         "name": "Dal Makhani and Malabar Paratha Combo",
         "description": "Dal Makhani served with 1 Malabar Paratha.",
         "price": 229,
         "veg": true,
-        "image": "dal-makhani-combo.jpg"
+        "image": "dal-makhani-combo.jpg",
+        "available": true
       },
       {
         "name": "Tawa Chicken Seekh Kebab and Rumali Roti Combo",
         "description": "Tawa Chicken Seekh Kebab served with 2 Rumali Rotis.",
         "price": 329,
         "veg": false,
-        "image": "tawa-chicken-seekh-combo.jpg"
+        "image": "tawa-chicken-seekh-combo.jpg",
+        "available": true
       }
     ]
   },
@@ -373,42 +421,48 @@
         "description": "Golden crispy fries lightly seasoned.",
         "price": 99,
         "veg": true,
-        "image": "french-fries.jpg"
+        "image": "french-fries.jpg",
+        "available": true
       },
       {
         "name": "Peri Peri French Fries",
         "description": "Fries tossed in spicy peri peri seasoning.",
         "price": 119,
         "veg": true,
-        "image": "peri-peri-french-fries.jpg"
+        "image": "peri-peri-french-fries.jpg",
+        "available": true
       },
       {
         "name": "Veg Spring Rolls (4 Pieces)",
         "description": "Crispy rolls stuffed with vegetables.",
         "price": 199,
         "veg": true,
-        "image": "veg-spring-rolls.jpg"
+        "image": "veg-spring-rolls.jpg",
+        "available": true
       },
       {
         "name": "Chicken Nuggets (6 Pieces)",
         "description": "Crunchy chicken nuggets served with dip.",
         "price": 199,
         "veg": false,
-        "image": "chicken-nuggets.jpg"
+        "image": "chicken-nuggets.jpg",
+        "available": true
       },
       {
         "name": "Boneless Crispy Chicken Strips (5 Pieces)",
         "description": "Golden fried crispy chicken strips.",
         "price": 279,
         "veg": false,
-        "image": "crispy-chicken-strips.jpg"
+        "image": "crispy-chicken-strips.jpg",
+        "available": true
       },
       {
         "name": "Peri Peri Crispy Chicken Strips (5 Pieces)",
         "description": "Crispy chicken strips tossed in peri peri.",
         "price": 299,
         "veg": false,
-        "image": "peri-peri-chicken-strips.jpg"
+        "image": "peri-peri-chicken-strips.jpg",
+        "available": true
       }
     ]
   },
@@ -420,14 +474,16 @@
         "description": "Steamed premium basmati rice.",
         "price": 129,
         "veg": true,
-        "image": "plain-rice.jpg"
+        "image": "plain-rice.jpg",
+        "available": true
       },
       {
         "name": "Jeera Rice",
         "description": "Basmati rice tempered with roasted cumin.",
         "price": 149,
         "veg": true,
-        "image": "jeera-rice.jpg"
+        "image": "jeera-rice.jpg",
+        "available": true
       }
     ]
   },
@@ -439,49 +495,56 @@
         "description": "Whole wheat roti.",
         "price": 19,
         "veg": true,
-        "image": "tawa-roti.jpg"
+        "image": "tawa-roti.jpg",
+        "available": true
       },
       {
         "name": "Butter Tawa Roti",
         "description": "Whole wheat roti with butter.",
         "price": 29,
         "veg": true,
-        "image": "butter-tawa-roti.jpg"
+        "image": "butter-tawa-roti.jpg",
+        "available": true
       },
       {
         "name": "Paratha",
         "description": "Layered whole wheat paratha.",
         "price": 49,
         "veg": true,
-        "image": "paratha.jpg"
+        "image": "paratha.jpg",
+        "available": true
       },
       {
         "name": "Garlic Paratha",
         "description": "Paratha infused with garlic and herbs.",
         "price": 69,
         "veg": true,
-        "image": "garlic-paratha.jpg"
+        "image": "garlic-paratha.jpg",
+        "available": true
       },
       {
         "name": "Laccha Paratha",
         "description": "Flaky layered North Indian bread.",
         "price": 69,
         "veg": true,
-        "image": "laccha-paratha.jpg"
+        "image": "laccha-paratha.jpg",
+        "available": true
       },
       {
         "name": "Malabar Paratha",
         "description": "Kerala style layered paratha.",
         "price": 69,
         "veg": true,
-        "image": "malabar-paratha.jpg"
+        "image": "malabar-paratha.jpg",
+        "available": true
       },
       {
         "name": "Egg Paratha",
         "description": "Classic Egg Paratha.",
         "price": 129,
         "veg": false,
-        "image": "egg-paratha.jpg"
+        "image": "egg-paratha.jpg",
+        "available": true
       }
     ]
   },
@@ -493,7 +556,8 @@
         "description": "Chilled Coca Cola soft drink.",
         "price": 30,
         "veg": true,
-        "image": "coca-cola.jpg"
+        "image": "coca-cola.jpg",
+        "available": true
       }
     ]
   }
