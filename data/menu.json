@@ -78,6 +78,13 @@
     "category": "Main Course - Non Veg",
     "items": [
       {
+        "name": "Tawa Chicken Seekh Kebab",
+        "description": "Tawa Chicken Seekh Kebabs Gravy.",
+        "price": 299,
+        "veg": false,
+        "image": "tawa-chicken-seekh-kebab.jpg"
+      },
+      {
         "name": "Butter Chicken (Boneless) (Half)",
         "description": "Tender boneless chicken in rich buttery tomato gravy.",
         "price": 499,
@@ -434,6 +441,13 @@
   {
     "category": "Breads",
     "items": [
+      {
+        "name": "Rumali Roti",
+        "description": "Rumali Roti.",
+        "price": 19,
+        "veg": true,
+        "image": "rumali-roti.jpg"
+      },
       {
         "name": "Tawa Roti",
         "description": "Whole wheat roti.",
