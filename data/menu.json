@@ -553,6 +553,14 @@
         "veg": false,
         "image": "egg-paratha.jpg",
         "available": true
+      },
+      {
+        "name": "Rumali Roti",
+        "description": "flat rumali bread.",
+        "price": 19,
+        "veg": true,
+        "image": "rumali-roti.jpg",
+        "available": true
       }
     ]
   },
