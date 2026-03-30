@@ -102,6 +102,7 @@ function renderMenu(menuData) {
     section.innerHTML = `<h2>${category.category}</h2>`;
 
     category.items.forEach(item => {
+      if (item.available === false) return; // hidden by admin
       const finalPrice = calculateDiscount(item.price);
       const dot = item.veg ? "🟢" : "🔴";
       // safe key for DOM id: replace spaces & special chars
