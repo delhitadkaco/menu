@@ -579,6 +579,39 @@
   },
   {
     "category": "Rice Bowls",
-    "items": []
+    "items": [
+      {
+        "name": "Dal Makhani Rice Bowl",
+        "description": "Served in 650 ml container Dal Makhani and Rice Bowl.",
+        "price": 249,
+        "veg": false,
+        "image": "dal-makhani-bowl.jpg",
+        "available": true
+      },
+      {
+        "name": "Rajma Rice Bowl",
+        "description": "650 ml Rajma and Rice bowl",
+        "price": 249,
+        "veg": true,
+        "image": "rajma-rice-bowl.jpg",
+        "available": true
+      },
+      {
+        "name": "Chole Rice Bowl",
+        "description": "650 ml Chole and Rice bowl",
+        "price": 249,
+        "veg": true,
+        "image": "chole-rice-bowl.jpg",
+        "available": true
+      },
+      {
+        "name": "Butter Chicken Rice Bowl",
+        "description": "650 ml Butter Chicken (Boneless) and Rice Bowl",
+        "price": 299,
+        "veg": true,
+        "image": "butter-chicken-rice-bowl.jpg",
+        "available": true
+      }
+    ]
   }
 ]
