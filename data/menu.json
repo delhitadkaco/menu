@@ -247,19 +247,19 @@
         "available": true
       },
       {
-        "name": "Signature Chicken Burger",
-        "description": "Juicy chicken burger with cheese and sauces.",
-        "price": 199,
-        "veg": false,
-        "image": "signature-chicken-burger.jpg",
-        "available": true
-      },
-      {
         "name": "Tadka Chicken Seekh Burger",
         "description": "Chicken seekh kebab burger with mint chutney.",
         "price": 169,
         "veg": false,
         "image": "tadka-chicken-seekh-burger.jpg",
+        "available": true
+      },
+      {
+        "name": "Signature Chicken Burger",
+        "description": "Juicy chicken burger with cheese and sauces.",
+        "price": 219,
+        "veg": false,
+        "image": "signature-chicken-burger.jpg",
         "available": true
       }
     ]
@@ -332,38 +332,6 @@
         "available": true
       },
       {
-        "name": "Signature Chicken Burger Combo (Regular)",
-        "description": "Signature Chicken Burger + Fries + 250ml Beverage.",
-        "price": 279,
-        "veg": false,
-        "image": "signature-chicken-burger-combo-regular.jpg",
-        "available": true
-      },
-      {
-        "name": "Signature Chicken Burger Combo (Peri Peri)",
-        "description": "Signature Chicken Burger + Peri Fries + 250ml Beverage.",
-        "price": 299,
-        "veg": false,
-        "image": "signature-chicken-burger-combo-regular.jpg",
-        "available": true
-      },
-      {
-        "name": "Chicken Seekh Burger Combo (Regular)",
-        "description": "Chicken Seekh Burger + Fries + 250ml Beverage.",
-        "price": 249,
-        "veg": false,
-        "image": "chicken-seekh-burger-combo-regular.jpg",
-        "available": true
-      },
-      {
-        "name": "Chicken Seekh Burger Combo (Peri Peri)",
-        "description": "Chicken Seekh Burger + Peri Fries + 250ml Beverage.",
-        "price": 269,
-        "veg": false,
-        "image": "chicken-seekh-burger-combo-regular.jpg",
-        "available": true
-      },
-      {
         "name": "Chicken Malai Seekh Kebab and Rumali Roti Combo",
         "description": "2 Chicken Malai Seekh Kebabs served with 2 Rumali Rotis.",
         "price": 229,
@@ -417,6 +385,38 @@
         "price": 329,
         "veg": false,
         "image": "tawa-chicken-seekh-combo.jpg",
+        "available": true
+      },
+      {
+        "name": "Signature Chicken Burger Combo (Regular)",
+        "description": "Signature Chicken Burger + Fries + 250ml Beverage.",
+        "price": 299,
+        "veg": false,
+        "image": "signature-chicken-burger-combo-regular.jpg",
+        "available": true
+      },
+      {
+        "name": "Signature Chicken Burger Combo (Peri Peri)",
+        "description": "Signature Chicken Burger + Peri Fries + 250ml Beverage.",
+        "price": 319,
+        "veg": false,
+        "image": "signature-chicken-burger-combo-regular.jpg",
+        "available": true
+      },
+      {
+        "name": "Chicken Seekh Burger Combo (Regular)",
+        "description": "Chicken Seekh Burger + Fries + 250ml Beverage.",
+        "price": 259,
+        "veg": false,
+        "image": "chicken-seekh-burger-combo-regular.jpg",
+        "available": true
+      },
+      {
+        "name": "Chicken Seekh Burger Combo (Peri Peri)",
+        "description": "Chicken Seekh Burger + Peri Fries + 250ml Beverage.",
+        "price": 279,
+        "veg": false,
+        "image": "chicken-seekh-burger-combo-regular.jpg",
         "available": true
       }
     ]
