@@ -261,6 +261,14 @@
         "veg": false,
         "image": "signature-chicken-burger.jpg",
         "available": true
+      },
+      {
+        "name": "Classic Chicken Burger",
+        "description": "A timeless favorite featuring a perfectly toasted sesame bun layered with a juicy, well-seasoned chicken patty, fresh onion rings, and ripe tomato slices. Finished with our signature in-house sauce, every bite delivers a balanced mix of crunch, flavor, and classic comfort.",
+        "price": 169,
+        "veg": false,
+        "image": "classic-chicken-burger.jpg",
+        "available": true
       }
     ]
   },
