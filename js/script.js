@@ -1,4 +1,4 @@
-const DISCOUNT_PERCENT = 20;
+const DISCOUNT_PERCENT = 25;
 const PHONE_NUMBER = "918860432553";
 
 // cart: itemName -> { name, price, qty }
