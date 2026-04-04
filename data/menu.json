@@ -616,6 +616,15 @@
   },
   {
     "category": "Stuffed Garlic Bread",
-    "items": []
+    "items": [
+      {
+        "name": "Stuffed Garlic Bread",
+        "description": "Classic cheese, corn and jalapenos stuffed garlic bread.",
+        "price": 219,
+        "veg": true,
+        "image": "stuffed-garlic-bread.jpg",
+        "available": true
+      }
+    ]
   }
 ]
