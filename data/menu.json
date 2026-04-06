@@ -88,38 +88,6 @@
     "category": "Main Course - Non Veg",
     "items": [
       {
-        "name": "Butter Chicken (Boneless) (Half)",
-        "description": "Tender boneless chicken in rich buttery tomato gravy.",
-        "price": 499,
-        "veg": false,
-        "image": "butter-chicken-boneless-half.jpg",
-        "available": true
-      },
-      {
-        "name": "Butter Chicken (Boneless) (Full)",
-        "description": "Tender boneless chicken in rich buttery tomato gravy.",
-        "price": 699,
-        "veg": false,
-        "image": "butter-chicken-boneless-full.jpg",
-        "available": true
-      },
-      {
-        "name": "Chicken Karahi (Boneless) (Half)",
-        "description": "Boneless chicken simmered in bold karahi masala.",
-        "price": 399,
-        "veg": false,
-        "image": "chicken-karahi-boneless-half.jpg",
-        "available": true
-      },
-      {
-        "name": "Chicken Karahi (Boneless) (Full)",
-        "description": "Boneless chicken simmered in bold karahi masala.",
-        "price": 599,
-        "veg": false,
-        "image": "chicken-karahi-boneless-full.jpg",
-        "available": true
-      },
-      {
         "name": "Mutton Rogan Josh (Half)",
         "description": "Slow cooked mutton in aromatic Kashmiri gravy.",
         "price": 599,
@@ -141,6 +109,22 @@
         "price": 299,
         "veg": false,
         "image": "tawa-chicken-seekh-kebab.jpg",
+        "available": true
+      },
+      {
+        "name": "Butter Chicken (Boneless)",
+        "description": "Serves 1-2 people. Tender boneless chicken in rich buttery tomato gravy.",
+        "price": 499,
+        "veg": false,
+        "image": "butter-chicken-boneless-half.jpg",
+        "available": true
+      },
+      {
+        "name": "Chicken Karahi (Boneless)",
+        "description": "Serves 1-2 people. Boneless chicken simmered in bold karahi masala.",
+        "price": 399,
+        "veg": false,
+        "image": "chicken-karahi-boneless-half.jpg",
         "available": true
       }
     ]
