@@ -104,14 +104,6 @@
         "available": false
       },
       {
-        "name": "Tawa Chicken Seekh Kebab",
-        "description": "Succulent minced chicken seekh kebabs simmered on a hot tawa in a rich, buttery tomato based gravy, infused with aromatic Indian spices.",
-        "price": 299,
-        "veg": false,
-        "image": "tawa-chicken-seekh-kebab.jpg",
-        "available": true
-      },
-      {
         "name": "Butter Chicken (Boneless)",
         "description": "Serves 1-2 people. Tender boneless chicken in rich buttery tomato gravy.",
         "price": 499,
@@ -125,6 +117,14 @@
         "price": 399,
         "veg": false,
         "image": "chicken-karahi-boneless-half.jpg",
+        "available": true
+      },
+      {
+        "name": "Tawa Chicken Seekh Kebab",
+        "description": "Serves 1-2 people. Succulent minced chicken seekh kebabs simmered on a hot tawa in a rich, buttery tomato based gravy, infused with aromatic Indian spices.",
+        "price": 299,
+        "veg": false,
+        "image": "tawa-chicken-seekh-kebab.jpg",
         "available": true
       }
     ]
