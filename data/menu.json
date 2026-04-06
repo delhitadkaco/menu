@@ -260,22 +260,6 @@
     "category": "Combos & Meals",
     "items": [
       {
-        "name": "Butter Chicken Combo",
-        "description": "Butter Chicken (Boneless) served with 1 Malabar Paratha.",
-        "price": 299,
-        "veg": false,
-        "image": "butter-chicken-combo.jpg",
-        "available": true
-      },
-      {
-        "name": "Kadhai Chicken Combo",
-        "description": "Boneless Chicken Kadai served with 1 Malabar Paratha.",
-        "price": 279,
-        "veg": false,
-        "image": "kadhai-chicken-combo.jpg",
-        "available": true
-      },
-      {
         "name": "Delhi Tikki Burger Combo (Regular)",
         "description": "Delhi Tikki Burger + Fries + 250ml Beverage.",
         "price": 199,
@@ -409,6 +393,22 @@
         "price": 279,
         "veg": false,
         "image": "chicken-seekh-burger-combo-regular.jpg",
+        "available": true
+      },
+      {
+        "name": "Butter Chicken Combo",
+        "description": "Butter Chicken (Boneless) served with 1 Malabar Paratha.",
+        "price": 329,
+        "veg": false,
+        "image": "butter-chicken-combo.jpg",
+        "available": true
+      },
+      {
+        "name": "Kadhai Chicken Combo",
+        "description": "Boneless Chicken Kadai served with 1 Malabar Paratha.",
+        "price": 329,
+        "veg": false,
+        "image": "kadhai-chicken-combo.jpg",
         "available": true
       }
     ]
