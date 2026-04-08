@@ -550,6 +550,14 @@
       "category": "Breads",
       "items": [
         {
+          "name": "Rumali Roti",
+          "description": "flat rumali bread.",
+          "price": 19,
+          "veg": true,
+          "image": "rumali-roti.jpg",
+          "available": true
+        },
+        {
           "name": "Tawa Roti",
           "description": "Whole wheat roti.",
           "price": 19,
@@ -603,14 +611,6 @@
           "price": 129,
           "veg": false,
           "image": "egg-paratha.jpg",
-          "available": true
-        },
-        {
-          "name": "Rumali Roti",
-          "description": "flat rumali bread.",
-          "price": 19,
-          "veg": true,
-          "image": "rumali-roti.jpg",
           "available": true
         }
       ]
