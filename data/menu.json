@@ -176,38 +176,14 @@
       ]
     },
     {
-      "category": "Kebabs",
+      "category": "Stuffed Garlic Bread",
       "items": [
         {
-          "name": "Chicken Malai Seekh Kebab (2 Pieces)",
-          "description": "Creamy grilled minced chicken seekh kebabs.",
-          "price": 209,
-          "veg": false,
-          "image": "chicken-malai-seekh-kebab.jpg",
-          "available": true
-        },
-        {
-          "name": "Chicken Seekh Kebab (2 Pieces)",
-          "description": "Traditional grilled chicken seekh kebabs.",
-          "price": 199,
-          "veg": false,
-          "image": "chicken-seekh-kebab.jpg",
-          "available": true
-        },
-        {
-          "name": "Mutton Malai Seekh Kebab (2 Pieces)",
-          "description": "Cream coated smoky mutton seekh kebabs.",
-          "price": 249,
-          "veg": false,
-          "image": "mutton-malai-seekh-kebab.jpg",
-          "available": true
-        },
-        {
-          "name": "Mutton Seekh Kebab (2 Pieces)",
-          "description": "Juicy grilled mutton seekh kebabs.",
+          "name": "Stuffed Garlic Bread",
+          "description": "Classic cheese, corn and jalapenos stuffed garlic bread.",
           "price": 219,
-          "veg": false,
-          "image": "mutton-seekh-kebab.jpg",
+          "veg": true,
+          "image": "stuffed-garlic-bread.jpg",
           "available": true
         }
       ]
@@ -261,6 +237,104 @@
           "price": 169,
           "veg": false,
           "image": "classic-chicken-burger.jpg",
+          "available": true
+        }
+      ]
+    },
+    {
+      "category": "Snacks",
+      "items": [
+        {
+          "name": "Bread Rolls",
+          "description": "2 pieces, Potato and vegetables filled Bread Rolls.",
+          "price": 99,
+          "veg": true,
+          "image": "bread-rolls.jpg",
+          "available": true
+        },
+        {
+          "name": "French Fries",
+          "description": "Golden crispy fries lightly seasoned.",
+          "price": 99,
+          "veg": true,
+          "image": "french-fries.jpg",
+          "available": true
+        },
+        {
+          "name": "Peri Peri French Fries",
+          "description": "Fries tossed in spicy peri peri seasoning.",
+          "price": 119,
+          "veg": true,
+          "image": "peri-peri-french-fries.jpg",
+          "available": true
+        },
+        {
+          "name": "Veg Spring Rolls (4 Pieces)",
+          "description": "Crispy rolls stuffed with vegetables.",
+          "price": 199,
+          "veg": true,
+          "image": "veg-spring-rolls.jpg",
+          "available": true
+        },
+        {
+          "name": "Chicken Nuggets (6 Pieces)",
+          "description": "Crunchy chicken nuggets served with dip.",
+          "price": 199,
+          "veg": false,
+          "image": "chicken-nuggets.jpg",
+          "available": true
+        },
+        {
+          "name": "Boneless Crispy Chicken Strips (5 Pieces)",
+          "description": "Golden fried crispy chicken strips.",
+          "price": 279,
+          "veg": false,
+          "image": "crispy-chicken-strips.jpg",
+          "available": true
+        },
+        {
+          "name": "Peri Peri Crispy Chicken Strips (5 Pieces)",
+          "description": "Crispy chicken strips tossed in peri peri.",
+          "price": 299,
+          "veg": false,
+          "image": "peri-peri-chicken-strips.jpg",
+          "available": true
+        }
+      ]
+    },
+    {
+      "category": "Kebabs",
+      "items": [
+        {
+          "name": "Chicken Malai Seekh Kebab (2 Pieces)",
+          "description": "Creamy grilled minced chicken seekh kebabs.",
+          "price": 209,
+          "veg": false,
+          "image": "chicken-malai-seekh-kebab.jpg",
+          "available": true
+        },
+        {
+          "name": "Chicken Seekh Kebab (2 Pieces)",
+          "description": "Traditional grilled chicken seekh kebabs.",
+          "price": 199,
+          "veg": false,
+          "image": "chicken-seekh-kebab.jpg",
+          "available": true
+        },
+        {
+          "name": "Mutton Malai Seekh Kebab (2 Pieces)",
+          "description": "Cream coated smoky mutton seekh kebabs.",
+          "price": 249,
+          "veg": false,
+          "image": "mutton-malai-seekh-kebab.jpg",
+          "available": true
+        },
+        {
+          "name": "Mutton Seekh Kebab (2 Pieces)",
+          "description": "Juicy grilled mutton seekh kebabs.",
+          "price": 219,
+          "veg": false,
+          "image": "mutton-seekh-kebab.jpg",
           "available": true
         }
       ]
@@ -423,83 +497,51 @@
       ]
     },
     {
-      "category": "Snacks",
+      "category": "Rice Bowls",
       "items": [
         {
-          "name": "French Fries",
-          "description": "Golden crispy fries lightly seasoned.",
-          "price": 99,
+          "name": "Rajma Rice Bowl",
+          "description": "650 ml Rajma and Rice bowl",
+          "price": 249,
           "veg": true,
-          "image": "french-fries.jpg",
+          "image": "rajma-rice-bowl.jpg",
           "available": true
         },
         {
-          "name": "Peri Peri French Fries",
-          "description": "Fries tossed in spicy peri peri seasoning.",
-          "price": 119,
+          "name": "Chole Rice Bowl",
+          "description": "650 ml Chole and Rice bowl",
+          "price": 249,
           "veg": true,
-          "image": "peri-peri-french-fries.jpg",
+          "image": "chole-rice-bowl.jpg",
           "available": true
         },
         {
-          "name": "Veg Spring Rolls (4 Pieces)",
-          "description": "Crispy rolls stuffed with vegetables.",
-          "price": 199,
+          "name": "Dal Makhani Rice Bowl",
+          "description": "Served in 650 ml container Dal Makhani and Rice Bowl.",
+          "price": 249,
           "veg": true,
-          "image": "veg-spring-rolls.jpg",
+          "image": "dal-makhani-bowl.jpg",
           "available": true
         },
         {
-          "name": "Chicken Nuggets (6 Pieces)",
-          "description": "Crunchy chicken nuggets served with dip.",
-          "price": 199,
-          "veg": false,
-          "image": "chicken-nuggets.jpg",
-          "available": true
-        },
-        {
-          "name": "Boneless Crispy Chicken Strips (5 Pieces)",
-          "description": "Golden fried crispy chicken strips.",
-          "price": 279,
-          "veg": false,
-          "image": "crispy-chicken-strips.jpg",
-          "available": true
-        },
-        {
-          "name": "Peri Peri Crispy Chicken Strips (5 Pieces)",
-          "description": "Crispy chicken strips tossed in peri peri.",
+          "name": "Butter Chicken Rice Bowl",
+          "description": "650 ml Butter Chicken (Boneless) and Rice Bowl",
           "price": 299,
           "veg": false,
-          "image": "peri-peri-chicken-strips.jpg",
-          "available": true
-        },
-        {
-          "name": "Bread Rolls",
-          "description": "2 pieces, Potato and vegetables filled Bread Rolls.",
-          "price": 99,
-          "veg": true,
-          "image": "bread-rolls.jpg",
+          "image": "butter-chicken-rice-bowl.jpg",
           "available": true
         }
       ]
     },
     {
-      "category": "Rice",
+      "category": "Beverages",
       "items": [
         {
-          "name": "Plain Rice",
-          "description": "Steamed premium basmati rice.",
-          "price": 129,
+          "name": "Coca Cola (250ml)",
+          "description": "Chilled Coca Cola soft drink.",
+          "price": 30,
           "veg": true,
-          "image": "plain-rice.jpg",
-          "available": true
-        },
-        {
-          "name": "Jeera Rice",
-          "description": "Basmati rice tempered with roasted cumin.",
-          "price": 149,
-          "veg": true,
-          "image": "jeera-rice.jpg",
+          "image": "coca-cola.jpg",
           "available": true
         }
       ]
@@ -574,64 +616,22 @@
       ]
     },
     {
-      "category": "Beverages",
+      "category": "Rice",
       "items": [
         {
-          "name": "Coca Cola (250ml)",
-          "description": "Chilled Coca Cola soft drink.",
-          "price": 30,
+          "name": "Plain Rice",
+          "description": "Steamed premium basmati rice.",
+          "price": 129,
           "veg": true,
-          "image": "coca-cola.jpg",
-          "available": true
-        }
-      ]
-    },
-    {
-      "category": "Rice Bowls",
-      "items": [
-        {
-          "name": "Rajma Rice Bowl",
-          "description": "650 ml Rajma and Rice bowl",
-          "price": 249,
-          "veg": true,
-          "image": "rajma-rice-bowl.jpg",
+          "image": "plain-rice.jpg",
           "available": true
         },
         {
-          "name": "Chole Rice Bowl",
-          "description": "650 ml Chole and Rice bowl",
-          "price": 249,
+          "name": "Jeera Rice",
+          "description": "Basmati rice tempered with roasted cumin.",
+          "price": 149,
           "veg": true,
-          "image": "chole-rice-bowl.jpg",
-          "available": true
-        },
-        {
-          "name": "Dal Makhani Rice Bowl",
-          "description": "Served in 650 ml container Dal Makhani and Rice Bowl.",
-          "price": 249,
-          "veg": true,
-          "image": "dal-makhani-bowl.jpg",
-          "available": true
-        },
-        {
-          "name": "Butter Chicken Rice Bowl",
-          "description": "650 ml Butter Chicken (Boneless) and Rice Bowl",
-          "price": 299,
-          "veg": false,
-          "image": "butter-chicken-rice-bowl.jpg",
-          "available": true
-        }
-      ]
-    },
-    {
-      "category": "Stuffed Garlic Bread",
-      "items": [
-        {
-          "name": "Stuffed Garlic Bread",
-          "description": "Classic cheese, corn and jalapenos stuffed garlic bread.",
-          "price": 219,
-          "veg": true,
-          "image": "stuffed-garlic-bread.jpg",
+          "image": "jeera-rice.jpg",
           "available": true
         }
       ]
