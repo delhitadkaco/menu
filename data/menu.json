@@ -1,4 +1,13 @@
-[
+{
+  "settings": {
+    "upiId": "",
+    "upiName": "Delhi Tadka Co.",
+    "paymentMethods": [
+      "upi",
+      "cash"
+    ]
+  },
+  "menu":[
   {
     "category": "Main Course - Veg",
     "items": [
@@ -627,4 +636,5 @@
       }
     ]
   }
-]
+ ]
+}
