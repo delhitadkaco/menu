@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delhi Tadka Co. — Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #c62828; --red-light: #ffebee; --green: #2e7d32; --green-light: #e8f5e9;
+      --bg: #f4f6f9; --card: #fff; --border: #e0e0e0; --text: #1a1a1a; --muted: #757575;
+      --sidebar: #1e1e2e; --radius: 10px; --shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* Login */
+    #loginScreen { display:flex; align-items:center; justify-content:center; min-height:100vh; background:var(--sidebar); }
+    .login-box { background:white; border-radius:16px; padding:40px; width:100%; max-width:420px; box-shadow:0 8px 40px rgba(0,0,0,0.3); }
+    .login-box h1 { font-size:22px; margin-bottom:4px; }
+    .login-box p { color:var(--muted); font-size:13px; margin-bottom:28px; }
+    .login-box label { font-size:13px; font-weight:600; display:block; margin-bottom:6px; }
+    .login-box input { width:100%; border:1.5px solid var(--border); border-radius:8px; padding:10px 12px; font-size:14px; font-family:'Inter',sans-serif; margin-bottom:16px; outline:none; transition:border-color 0.2s; }
+    .login-box input:focus { border-color:var(--red); }
+    .hint-box { background:#fff8e1; border-radius:8px; padding:12px; font-size:12px; color:#5d4037; margin-bottom:20px; line-height:1.6; }
+    .hint-box a { color:var(--red); }
+    .btn-primary { width:100%; background:var(--red); color:white; border:none; padding:12px; border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:opacity 0.2s; }
+    .btn-primary:hover { opacity:0.88; }
+    #loginError { color:var(--red); font-size:13px; margin-top:10px; display:none; }
+
+    /* Shell */
+    #app { display:none; }
+    .shell { display:flex; min-height:100vh; }
+    .sidebar { width:220px; background:var(--sidebar); color:white; display:flex; flex-direction:column; position:fixed; top:0; bottom:0; left:0; z-index:50; }
+    .sidebar-logo { padding:20px 18px 16px; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .sidebar-logo h2 { font-size:15px; font-weight:700; }
+    .sidebar-logo p { font-size:11px; color:rgba(255,255,255,0.4); margin-top:2px; }
+    .sidebar nav { flex:1; padding:12px 0; }
+    .nav-item { display:flex; align-items:center; gap:10px; padding:11px 18px; cursor:pointer; font-size:14px; font-weight:500; color:rgba(255,255,255,0.6); border-left:3px solid transparent; transition:all 0.15s; user-select:none; }
+    .nav-item:hover { color:white; background:rgba(255,255,255,0.05); }
+    .nav-item.active { color:white; border-left-color:var(--red); background:rgba(198,40,40,0.15); }
+    .nav-item .icon { font-size:17px; width:20px; text-align:center; }
+    .sidebar-footer { padding:14px 18px; border-top:1px solid rgba(255,255,255,0.08); font-size:12px; color:rgba(255,255,255,0.35); }
+    .logout-btn { display:block; width:100%; background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6); border:none; border-radius:6px; padding:8px; font-size:13px; cursor:pointer; font-family:'Inter',sans-serif; margin-top:8px; transition:background 0.15s; }
+    .logout-btn:hover { background:rgba(255,255,255,0.12); color:white; }
+
+    /* Main */
+    .main { margin-left:220px; flex:1; display:flex; flex-direction:column; }
+    .topbar { background:white; border-bottom:1px solid var(--border); padding:14px 24px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:40; }
+    .topbar h1 { font-size:18px; font-weight:700; }
+    .topbar .repo-info { font-size:12px; color:var(--muted); }
+    .save-bar { display:none; background:#fff8e1; border-bottom:2px solid #f9a825; padding:10px 24px; align-items:center; justify-content:space-between; font-size:13px; font-weight:500; color:#5d4037; }
+    .save-bar.visible { display:flex; }
+    .btn-save { background:#f9a825; color:white; border:none; border-radius:6px; padding:7px 18px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; }
+    .content { padding:24px; flex:1; }
+    .page { display:none; }
+    .page.active { display:block; }
+
+    /* Stats */
+    .stats-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; margin-bottom:24px; }
+    .stat-card { background:white; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); border:1px solid var(--border); }
+    .stat-card .label { font-size:12px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:0.5px; }
+    .stat-card .value { font-size:32px; font-weight:700; margin-top:6px; }
+    .stat-card .sub { font-size:12px; color:var(--muted); margin-top:2px; }
+
+    /* Settings card */
+    .settings-card { background:white; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); border:1px solid var(--border); margin-bottom:20px; }
+    .settings-card h3 { font-size:15px; font-weight:700; margin-bottom:16px; }
+    .settings-row { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:12px; }
+    .settings-row label { font-size:13px; font-weight:600; min-width:120px; }
+    .settings-row input[type=range] { flex:1; min-width:160px; accent-color:var(--red); }
+    .discount-value { font-size:28px; font-weight:700; color:var(--red); min-width:56px; }
+    .settings-row input[type=text] { flex:1; border:1.5px solid var(--border); border-radius:7px; padding:7px 10px; font-size:14px; font-family:'Inter',sans-serif; outline:none; }
+    .settings-row input[type=text]:focus { border-color:var(--red); }
+    .payment-checkboxes { display:flex; gap:14px; flex-wrap:wrap; }
+    .payment-checkboxes label { display:flex; align-items:center; gap:6px; font-size:14px; font-weight:500; cursor:pointer; }
+    .btn-apply { background:var(--red); color:white; border:none; border-radius:7px; padding:8px 20px; font-size:14px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; }
+    .btn-apply:hover { opacity:0.88; }
+
+    /* Menu toolbar */
+    .menu-toolbar { display:flex; align-items:center; gap:10px; margin-bottom:16px; flex-wrap:wrap; }
+    .cat-filter, .search-input { border:1.5px solid var(--border); border-radius:7px; padding:7px 12px; font-size:13px; font-family:'Inter',sans-serif; outline:none; background:white; }
+    .search-input { flex:1; min-width:180px; }
+    .search-input:focus, .cat-filter:focus { border-color:var(--red); }
+    .btn-add-item { background:var(--red); color:white; border:none; border-radius:7px; padding:8px 16px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; white-space:nowrap; }
+
+    /* Table */
+    .items-table { background:white; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; border:1px solid var(--border); }
+    .table-header { display:grid; grid-template-columns:70px 1fr 120px 80px 70px 110px; padding:10px 16px; background:#f9fafb; border-bottom:1px solid var(--border); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted); }
+    .item-row { display:grid; grid-template-columns:70px 1fr 120px 80px 70px 110px; padding:10px 16px; border-bottom:1px solid var(--border); align-items:center; cursor:grab; transition:background 0.1s; }
+    .item-row:last-child { border-bottom:none; }
+    .item-row:hover { background:#fafafa; }
+    .item-row.dragging { opacity:0.4; background:#f0f0f0; }
+    .item-row.drag-over { border-top:2px solid var(--red); }
+    .drag-handle { color:#ccc; font-size:16px; cursor:grab; padding-right:8px; user-select:none; }
+    .item-img { width:52px; height:40px; object-fit:cover; border-radius:6px; }
+    .item-name { font-size:13px; font-weight:600; line-height:1.3; }
+    .item-desc { font-size:11px; color:var(--muted); margin-top:2px; }
+    .item-category { font-size:12px; color:var(--muted); }
+    .item-price { font-size:14px; font-weight:700; }
+    .toggle-switch { position:relative; display:inline-block; width:40px; height:22px; }
+    .toggle-switch input { opacity:0; width:0; height:0; }
+    .toggle-slider { position:absolute; cursor:pointer; inset:0; background:#ccc; border-radius:22px; transition:0.2s; }
+    .toggle-slider:before { content:''; position:absolute; width:16px; height:16px; left:3px; bottom:3px; background:white; border-radius:50%; transition:0.2s; }
+    input:checked + .toggle-slider { background:var(--green); }
+    input:checked + .toggle-slider:before { transform:translateX(18px); }
+    .row-actions { display:flex; gap:6px; }
+    .btn-edit, .btn-delete { border:none; border-radius:6px; padding:5px 10px; font-size:12px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; }
+    .btn-edit { background:#e3f2fd; color:#1565c0; }
+    .btn-delete { background:var(--red-light); color:var(--red); }
+
+    /* Categories */
+    .cat-list { display:flex; flex-direction:column; gap:10px; }
+    .cat-card { background:white; border-radius:var(--radius); padding:14px 16px; box-shadow:var(--shadow); border:1px solid var(--border); display:flex; align-items:center; gap:12px; cursor:grab; transition:box-shadow 0.15s; }
+    .cat-card.dragging { opacity:0.4; }
+    .cat-card.drag-over { border-top:2px solid var(--red); }
+    .cat-drag { color:#ccc; font-size:20px; cursor:grab; user-select:none; }
+    .cat-name-input { flex:1; border:1.5px solid var(--border); border-radius:7px; padding:7px 10px; font-size:14px; font-family:'Inter',sans-serif; outline:none; }
+    .cat-name-input:focus { border-color:var(--red); }
+    .cat-count { font-size:12px; color:var(--muted); white-space:nowrap; }
+    .btn-del-cat { background:var(--red-light); color:var(--red); border:none; border-radius:6px; padding:6px 10px; cursor:pointer; font-size:13px; }
+    .btn-add-cat { background:white; border:2px dashed var(--border); border-radius:var(--radius); padding:14px; text-align:center; cursor:pointer; font-size:14px; color:var(--muted); transition:border-color 0.2s,color 0.2s; font-family:'Inter',sans-serif; width:100%; }
+    .btn-add-cat:hover { border-color:var(--red); color:var(--red); }
+
+    /* Modal */
+    .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:200; align-items:center; justify-content:center; padding:20px; }
+    .modal-overlay.open { display:flex; }
+    .modal { background:white; border-radius:14px; width:100%; max-width:540px; max-height:92vh; overflow-y:auto; box-shadow:0 8px 40px rgba(0,0,0,0.2); }
+    .modal-header { padding:18px 20px 14px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; background:white; z-index:1; }
+    .modal-header h3 { font-size:16px; font-weight:700; }
+    .modal-close { background:none; border:none; font-size:20px; cursor:pointer; color:var(--muted); }
+    .modal-body { padding:20px; }
+    .form-row { margin-bottom:16px; }
+    .form-row label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; }
+    .form-row input, .form-row select, .form-row textarea { width:100%; border:1.5px solid var(--border); border-radius:8px; padding:9px 12px; font-size:14px; font-family:'Inter',sans-serif; outline:none; transition:border-color 0.2s; }
+    .form-row input:focus,.form-row select:focus,.form-row textarea:focus { border-color:var(--red); }
+    .form-row textarea { resize:vertical; min-height:70px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .hint-text { font-size:11px; color:var(--muted); margin-top:4px; }
+    .radio-group { display:flex; gap:16px; }
+    .radio-group label { display:flex; align-items:center; gap:6px; font-weight:400; cursor:pointer; }
+    .modal-footer { padding:14px 20px; border-top:1px solid var(--border); display:flex; justify-content:flex-end; gap:10px; position:sticky; bottom:0; background:white; }
+    .btn-cancel { background:var(--bg); color:var(--text); border:1px solid var(--border); border-radius:7px; padding:8px 18px; font-size:14px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; }
+    .btn-confirm { background:var(--red); color:white; border:none; border-radius:7px; padding:8px 20px; font-size:14px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; }
+    .btn-confirm:hover { opacity:0.88; }
+
+    /* Image Upload */
+    .image-upload-area { border:2px dashed var(--border); border-radius:10px; padding:20px; text-align:center; cursor:pointer; transition:border-color 0.2s; position:relative; }
+    .image-upload-area:hover { border-color:var(--red); }
+    .image-upload-area.has-image { border-color:#86efac; background:#f0fdf4; }
+    .image-upload-area input[type=file] { position:absolute; inset:0; opacity:0; cursor:pointer; width:100%; height:100%; }
+    .image-preview { width:100%; max-height:160px; object-fit:cover; border-radius:8px; margin-top:10px; display:none; }
+    .image-upload-text { font-size:13px; color:var(--muted); }
+    .image-upload-text strong { display:block; color:var(--text); font-size:14px; margin-bottom:4px; }
+    .image-filename { font-size:12px; color:var(--green); margin-top:6px; font-weight:600; }
+
+    /* Toast */
+    #toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#323232; color:white; padding:11px 22px; border-radius:8px; font-size:14px; font-weight:500; z-index:999; opacity:0; transition:opacity 0.3s; pointer-events:none; white-space:nowrap; }
+    #toast.show { opacity:1; }
+    #toast.success { background:var(--green); }
+    #toast.error { background:var(--red); }
+
+    .spinner { display:inline-block; width:16px; height:16px; border:2px solid rgba(255,255,255,0.4); border-top-color:white; border-radius:50%; animation:spin 0.7s linear infinite; vertical-align:middle; margin-right:6px; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .empty-state { text-align:center; padding:40px 20px; color:var(--muted); }
+    .empty-state .icon { font-size:36px; margin-bottom:10px; }
+  </style>
+</head>
+<body>
+
+<!-- Login -->
+<div id="loginScreen">
+  <div class="login-box">
+    <h1>🍛 Admin Portal</h1>
+    <p>Delhi Tadka Co. Menu Manager</p>
+    <div class="hint-box">
+      You need a GitHub <strong>Personal Access Token</strong> with <code>repo</code> scope.<br>
+      <a href="https://github.com/settings/tokens/new?scopes=repo&description=DelhiTadkaCo+Admin" target="_blank">→ Create one here</a><br><br>
+      Your token stays in this browser session only.
+    </div>
+    <label>GitHub Token</label>
+    <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+    <label>Repository (owner/repo)</label>
+    <input type="text" id="repoInput" value="delhitadkaco/menu">
+    <label>Branch</label>
+    <input type="text" id="branchInput" value="main">
+    <button class="btn-primary" onclick="doLogin()">Connect & Load Menu</button>
+    <div id="loginError"></div>
+  </div>
+</div>
+
+<!-- App -->
+<div id="app">
+  <div class="shell">
+    <div class="sidebar">
+      <div class="sidebar-logo"><h2>🍛 Delhi Tadka Co.</h2><p>Admin Portal</p></div>
+      <nav>
+        <div class="nav-item active" onclick="showPage('dashboard')" id="nav-dashboard"><span class="icon">📊</span> Dashboard</div>
+        <div class="nav-item" onclick="showPage('menu')" id="nav-menu"><span class="icon">🍽️</span> Menu Items</div>
+        <div class="nav-item" onclick="showPage('categories')" id="nav-categories"><span class="icon">📂</span> Categories</div>
+        <div class="nav-item" onclick="showPage('settings')" id="nav-settings"><span class="icon">⚙️</span> Settings</div>
+      </nav>
+      <div class="sidebar-footer">
+        <div id="repoLabel"></div>
+        <button class="logout-btn" onclick="doLogout()">↩ Disconnect</button>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="topbar">
+        <h1 id="pageTitle">Dashboard</h1>
+        <span class="repo-info" id="topbarRepo"></span>
+      </div>
+      <div class="save-bar" id="saveBar">
+        ⚠️ You have unsaved changes — remember to Save & Publish.
+        <button class="btn-save" onclick="saveToGitHub()">💾 Save & Publish</button>
+      </div>
+      <div class="content">
+
+        <!-- Dashboard -->
+        <div class="page active" id="page-dashboard">
+          <div class="stats-grid" id="statsGrid"></div>
+          <div class="items-table">
+            <div style="padding:14px 16px;font-size:14px;font-weight:700;border-bottom:1px solid var(--border)">🔴 Hidden Items</div>
+            <div id="hiddenItemsList"><div class="empty-state"><div class="icon">✅</div>All items are visible</div></div>
+          </div>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="page" id="page-menu">
+          <div class="menu-toolbar">
+            <select class="cat-filter" id="catFilter" onchange="renderItemsTable()">
+              <option value="">All Categories</option>
+            </select>
+            <input class="search-input" id="searchInput" placeholder="Search items..." oninput="renderItemsTable()">
+            <button class="btn-add-item" onclick="openAddItemModal()">+ Add Item</button>
+          </div>
+          <div class="items-table">
+            <div class="table-header">
+              <div>Image</div><div>Item</div><div>Category</div><div>Price</div><div>Visible</div><div>Actions</div>
+            </div>
+            <div id="itemsTableBody"></div>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="page" id="page-categories">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Drag to reorder. Rename or remove categories.</p>
+          <div class="cat-list" id="catList"></div>
+          <button class="btn-add-cat" onclick="addCategory()" style="margin-top:12px">+ Add Category</button>
+        </div>
+
+        <!-- Settings -->
+        <div class="page" id="page-settings">
+          <div class="settings-card">
+            <h3>🏷️ Discount</h3>
+            <div class="settings-row">
+              <label>Discount %</label>
+              <input type="range" id="discountRange" min="0" max="50" step="5" value="20" oninput="updateDiscountDisplay(this.value)">
+              <div class="discount-value"><span id="discountDisplay">20</span>%</div>
+              <button class="btn-apply" onclick="applyDiscount()">Apply</button>
+            </div>
+          </div>
+          <div class="settings-card">
+            <h3>💳 Payment Settings</h3>
+            <div class="settings-row">
+              <label>UPI ID</label>
+              <input type="text" id="upiIdInput" placeholder="yourname@upi">
+            </div>
+            <div class="settings-row">
+              <label>UPI Name</label>
+              <input type="text" id="upiNameInput" placeholder="Delhi Tadka Co.">
+            </div>
+            <div class="settings-row">
+              <label>Methods</label>
+              <div class="payment-checkboxes">
+                <label><input type="checkbox" id="pm-upi" checked> 💳 UPI</label>
+                <label><input type="checkbox" id="pm-cash" checked> 💵 Cash on Delivery</label>
+                <label><input type="checkbox" id="pm-card"> 🏦 Card</label>
+              </div>
+            </div>
+            <button class="btn-apply" onclick="applySettings()">Save Settings</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Item Modal -->
+<div class="modal-overlay" id="itemModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">Add Item</h3>
+      <button class="modal-close" onclick="closeItemModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="editCatIndex">
+      <input type="hidden" id="editItemIndex">
+      <div class="form-row">
+        <label>Item Name *</label>
+        <input type="text" id="fName" placeholder="e.g. Paneer Butter Masala (Half)">
+      </div>
+      <div class="form-row">
+        <label>Description</label>
+        <textarea id="fDesc" placeholder="Short description of the dish..."></textarea>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Price (₹) *</label>
+          <input type="number" id="fPrice" min="0" placeholder="299">
+        </div>
+        <div class="form-row">
+          <label>Category *</label>
+          <select id="fCategory"></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Type</label>
+        <div class="radio-group">
+          <label><input type="radio" name="vegNonveg" value="true" id="fVeg"> 🟢 Veg</label>
+          <label><input type="radio" name="vegNonveg" value="false" id="fNonveg" checked> 🔴 Non-Veg</label>
+        </div>
+      </div>
+      <!-- Image Upload -->
+      <div class="form-row">
+        <label>Item Image</label>
+        <div class="image-upload-area" id="imageUploadArea">
+          <input type="file" id="fImageFile" accept="image/*" onchange="handleImageSelect(this)">
+          <div class="image-upload-text">
+            <strong>📸 Click or drag to upload image</strong>
+            Supports JPG, PNG, WEBP
+          </div>
+          <img class="image-preview" id="imagePreview" alt="Preview">
+          <div class="image-filename" id="imageFilename"></div>
+        </div>
+        <p class="hint-text" style="margin-top:6px">Or enter an existing filename below if already uploaded:</p>
+        <input type="text" id="fImage" placeholder="existing-image.jpg" style="margin-top:6px">
+      </div>
+      <div class="form-row">
+        <label>
+          <input type="checkbox" id="fAvailable" checked style="width:auto;margin-right:6px">
+          Visible on menu
+        </label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeItemModal()">Cancel</button>
+      <button class="btn-confirm" id="saveItemBtn" onclick="saveItem()">Save Item</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+let TOKEN = '', REPO = '', BRANCH = 'main';
+let menuData = [], siteSettings = { upiId:'', upiName:'', paymentMethods:['upi','cash'] };
+let menuSha = '', scriptSha = '', scriptContent = '';
+let dirty = false;
+let pendingImageFile = null, pendingImageFilename = '';
+
+// ── Auth ──
+async function doLogin() {
+  TOKEN = document.getElementById('tokenInput').value.trim();
+  REPO = document.getElementById('repoInput').value.trim();
+  BRANCH = document.getElementById('branchInput').value.trim() || 'main';
+  if (!TOKEN || !REPO) { showLoginError('Please enter token and repository.'); return; }
+  const btn = document.querySelector('#loginScreen .btn-primary');
+  btn.innerHTML = '<span class="spinner"></span>Connecting...'; btn.disabled = true;
+  try {
+    await loadFromGitHub();
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    document.getElementById('repoLabel').textContent = REPO;
+    document.getElementById('topbarRepo').textContent = REPO + ' / ' + BRANCH;
+    renderAll();
+    showToast('Connected to ' + REPO, 'success');
+  } catch(e) {
+    showLoginError('Failed: ' + e.message);
+  } finally {
+    btn.innerHTML = 'Connect & Load Menu'; btn.disabled = false;
+  }
+}
+function doLogout() {
+  TOKEN=''; REPO=''; menuData=[];
+  document.getElementById('loginScreen').style.display='flex';
+  document.getElementById('app').style.display='none';
+}
+function showLoginError(msg) {
+  const el=document.getElementById('loginError'); el.textContent=msg; el.style.display='block';
+}
+
+// ── GitHub API ──
+async function ghGet(path) {
+  const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}?ref=${BRANCH}&t=${Date.now()}`, {
+    headers: { Authorization: 'token '+TOKEN, Accept: 'application/vnd.github.v3+json' }
+  });
+  if (!res.ok) throw new Error(`GitHub ${res.status} on ${path}`);
+  return res.json();
+}
+async function ghPut(path, content, sha, message) {
+  const body = { message, content: btoa(unescape(encodeURIComponent(content))), branch: BRANCH };
+  if (sha) body.sha = sha;
+  const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+    method: 'PUT',
+    headers: { Authorization: 'token '+TOKEN, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) { const e=await res.json(); throw new Error(e.message||'Write failed'); }
+  return res.json();
+}
+async function ghPutBinary(path, base64Content, sha, message) {
+  const body = { message, content: base64Content, branch: BRANCH };
+  if (sha) body.sha = sha;
+  const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+    method: 'PUT',
+    headers: { Authorization: 'token '+TOKEN, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) { const e=await res.json(); throw new Error(e.message||'Image upload failed'); }
+  return res.json();
+}
+
+async function loadFromGitHub() {
+  // Load menu.json
+  const menuFile = await ghGet('data/menu.json');
+  menuSha = menuFile.sha;
+  let raw = JSON.parse(decodeURIComponent(escape(atob(menuFile.content.replace(/\n/g,'')))));
+  if (raw.settings) { siteSettings = {...siteSettings, ...raw.settings}; menuData = raw.menu || raw; }
+  else if (!Array.isArray(raw) && raw.menu) { menuData = raw.menu; }
+  else { menuData = raw; }
+  menuData.forEach(cat => cat.items.forEach(item => { if (item.available===undefined) item.available=true; }));
+
+  // Load script.js
+  try {
+    const sf = await ghGet('js/script.js');
+    scriptSha = sf.sha;
+    scriptContent = decodeURIComponent(escape(atob(sf.content.replace(/\n/g,''))));
+  } catch(e) { scriptContent=''; }
+}
+
+async function saveToGitHub() {
+  const btn = document.querySelector('#saveBar .btn-save');
+  btn.innerHTML='<span class="spinner"></span>Saving...'; btn.disabled=true;
+  try {
+    // Upload pending image if any
+    if (pendingImageFile && pendingImageFilename) {
+      await uploadImage(pendingImageFile, pendingImageFilename);
+      pendingImageFile=null; pendingImageFilename='';
+    }
+    // Build the JSON to save
+    const payload = { settings: siteSettings, menu: menuData };
+    const menuJson = JSON.stringify(payload, null, 2);
+    const mr = await ghPut('data/menu.json', menuJson, menuSha, '🍽️ Admin: update menu');
+    menuSha = mr.content.sha;
+    // Save script.js if discount changed
+    if (scriptContent && scriptSha) {
+      const sr = await ghPut('js/script.js', scriptContent, scriptSha, '🏷️ Admin: update settings');
+      scriptSha = sr.content.sha;
+    }
+    dirty=false;
+    document.getElementById('saveBar').classList.remove('visible');
+    showToast('✅ Saved & published!', 'success');
+  } catch(e) {
+    showToast('❌ '+e.message, 'error');
+  } finally {
+    btn.innerHTML='💾 Save & Publish'; btn.disabled=false;
+  }
+}
+
+async function uploadImage(file, filename) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      try {
+        const base64 = e.target.result.split(',')[1];
+        // Check if file exists to get sha
+        let sha = undefined;
+        try { const existing = await ghGet('images/'+filename); sha=existing.sha; } catch(e){}
+        await ghPutBinary('images/'+filename, base64, sha, '🖼️ Admin: upload image '+filename);
+        resolve();
+      } catch(err) { reject(err); }
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function markDirty() { dirty=true; document.getElementById('saveBar').classList.add('visible'); }
+
+// ── Pages ──
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.getElementById('nav-'+name).classList.add('active');
+  const titles={dashboard:'Dashboard',menu:'Menu Items',categories:'Categories',settings:'Settings'};
+  document.getElementById('pageTitle').textContent=titles[name]||name;
+  if (name==='dashboard') renderDashboard();
+  if (name==='menu') renderItemsTable();
+  if (name==='categories') renderCategories();
+  if (name==='settings') renderSettings();
+}
+
+function renderAll() { renderDashboard(); renderCatFilter(); renderItemsTable(); renderCategories(); renderSettings(); }
+
+// ── Dashboard ──
+function renderDashboard() {
+  const total=menuData.reduce((s,c)=>s+c.items.length,0);
+  const hidden=menuData.reduce((s,c)=>s+c.items.filter(i=>i.available===false).length,0);
+  const veg=menuData.reduce((s,c)=>s+c.items.filter(i=>i.veg).length,0);
+  const disc=getDiscount();
+  document.getElementById('statsGrid').innerHTML=`
+    <div class="stat-card"><div class="label">Total Items</div><div class="value">${total}</div><div class="sub">${menuData.length} categories</div></div>
+    <div class="stat-card"><div class="label">Veg Items</div><div class="value" style="color:var(--green)">${veg}</div><div class="sub">${total-veg} non-veg</div></div>
+    <div class="stat-card"><div class="label">Hidden</div><div class="value" style="color:var(--red)">${hidden}</div><div class="sub">not shown to customers</div></div>
+    <div class="stat-card"><div class="label">Discount</div><div class="value" style="color:var(--red)">${disc}%</div><div class="sub">UPI: ${siteSettings.upiId||'not set'}</div></div>`;
+  const hiddenItems=[];
+  menuData.forEach(cat=>cat.items.filter(i=>i.available===false).forEach(i=>hiddenItems.push({...i,cat:cat.category})));
+  const el=document.getElementById('hiddenItemsList');
+  el.innerHTML=hiddenItems.length===0
+    ?'<div class="empty-state"><div class="icon">✅</div>All items visible</div>'
+    :hiddenItems.map(i=>`<div class="item-row" style="grid-template-columns:70px 1fr 120px">
+        <img class="item-img" src="https://raw.githubusercontent.com/${REPO}/${BRANCH}/images/${i.image}" onerror="this.style.display='none'">
+        <div><div class="item-name">${i.name}</div><div class="item-desc">${i.cat}</div></div>
+        <div style="color:var(--red);font-weight:600;font-size:12px">Hidden</div></div>`).join('');
+}
+
+// ── Settings ──
+function renderSettings() {
+  const disc=getDiscount();
+  document.getElementById('discountRange').value=disc;
+  document.getElementById('discountDisplay').textContent=disc;
+  document.getElementById('upiIdInput').value=siteSettings.upiId||'';
+  document.getElementById('upiNameInput').value=siteSettings.upiName||'';
+  const methods=siteSettings.paymentMethods||['upi','cash'];
+  document.getElementById('pm-upi').checked=methods.includes('upi');
+  document.getElementById('pm-cash').checked=methods.includes('cash');
+  document.getElementById('pm-card').checked=methods.includes('card');
+}
+
+function getDiscount() {
+  if (!scriptContent) return 20;
+  const m=scriptContent.match(/const DISCOUNT_PERCENT\s*=\s*(\d+)/);
+  return m?parseInt(m[1]):20;
+}
+function updateDiscountDisplay(val) { document.getElementById('discountDisplay').textContent=val; }
+function applyDiscount() {
+  const val=document.getElementById('discountRange').value;
+  if (scriptContent) scriptContent=scriptContent.replace(/const DISCOUNT_PERCENT\s*=\s*\d+/,`const DISCOUNT_PERCENT = ${val}`);
+  markDirty(); renderDashboard(); showToast(`Discount set to ${val}%`, 'success');
+}
+function applySettings() {
+  siteSettings.upiId=document.getElementById('upiIdInput').value.trim();
+  siteSettings.upiName=document.getElementById('upiNameInput').value.trim();
+  const methods=[];
+  if (document.getElementById('pm-upi').checked) methods.push('upi');
+  if (document.getElementById('pm-cash').checked) methods.push('cash');
+  if (document.getElementById('pm-card').checked) methods.push('card');
+  siteSettings.paymentMethods=methods;
+  markDirty(); renderDashboard(); showToast('Settings saved — publish to apply', 'success');
+}
+
+// ── Cat Filter ──
+function renderCatFilter() {
+  const sel=document.getElementById('catFilter');
+  const fCat=document.getElementById('fCategory');
+  const cur=sel.value;
+  sel.innerHTML='<option value="">All Categories</option>';
+  fCat.innerHTML='';
+  menuData.forEach((cat,i)=>{
+    sel.innerHTML+=`<option value="${i}" ${cur==i?'selected':''}>${cat.category}</option>`;
+    fCat.innerHTML+=`<option value="${i}">${cat.category}</option>`;
+  });
+}
+
+// ── Items Table (with drag-and-drop) ──
+let dragSrcCat=-1, dragSrcItem=-1;
+
+function renderItemsTable() {
+  const catFilter=document.getElementById('catFilter').value;
+  const search=document.getElementById('searchInput').value.toLowerCase();
+  const body=document.getElementById('itemsTableBody');
+  body.innerHTML='';
+  let count=0;
+  menuData.forEach((cat,ci)=>{
+    if (catFilter!==''&&parseInt(catFilter)!==ci) return;
+    cat.items.forEach((item,ii)=>{
+      if (search&&!item.name.toLowerCase().includes(search)&&!cat.category.toLowerCase().includes(search)) return;
+      count++;
+      const available=item.available!==false;
+      const row=document.createElement('div');
+      row.className='item-row';
+      row.draggable=true;
+      row.dataset.ci=ci; row.dataset.ii=ii;
+      row.innerHTML=`
+        <div>
+          <img class="item-img" src="https://raw.githubusercontent.com/${REPO}/${BRANCH}/images/${item.image||''}"
+            onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 52 40%22><rect width=%2252%22 height=%2240%22 fill=%22%23f0f0f0%22/></svg>'">
+        </div>
+        <div>
+          <div class="item-name">${item.veg?'🟢':'🔴'} ${item.name}</div>
+          <div class="item-desc">${item.description||''}</div>
+        </div>
+        <div class="item-category">${cat.category}</div>
+        <div class="item-price">₹${item.price}</div>
+        <div>
+          <label class="toggle-switch">
+            <input type="checkbox" ${available?'checked':''} onchange="toggleAvailable(${ci},${ii},this.checked)">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <div class="row-actions">
+          <button class="btn-edit" onclick="openEditItemModal(${ci},${ii})">Edit</button>
+          <button class="btn-delete" onclick="deleteItem(${ci},${ii})">Delete</button>
+        </div>`;
+      // Item drag events
+      row.addEventListener('dragstart',e=>{ dragSrcCat=ci; dragSrcItem=ii; row.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; });
+      row.addEventListener('dragend',()=>{ row.classList.remove('dragging'); document.querySelectorAll('.item-row').forEach(r=>r.classList.remove('drag-over')); });
+      row.addEventListener('dragover',e=>{ e.preventDefault(); e.dataTransfer.dropEffect='move'; row.classList.add('drag-over'); });
+      row.addEventListener('dragleave',()=>row.classList.remove('drag-over'));
+      row.addEventListener('drop',e=>{ e.preventDefault(); row.classList.remove('drag-over'); dropItem(ci,ii); });
+      body.appendChild(row);
+    });
+  });
+  if (count===0) body.innerHTML='<div class="empty-state"><div class="icon">🔍</div>No items found</div>';
+}
+
+function dropItem(targetCat, targetItem) {
+  if (dragSrcCat===-1) return;
+  const item=menuData[dragSrcCat].items.splice(dragSrcItem,1)[0];
+  menuData[targetCat].items.splice(targetItem,0,item);
+  markDirty(); renderItemsTable();
+  dragSrcCat=-1; dragSrcItem=-1;
+}
+
+function toggleAvailable(ci,ii,val) { menuData[ci].items[ii].available=val; markDirty(); renderDashboard(); }
+
+function deleteItem(ci,ii) {
+  if (!confirm(`Delete "${menuData[ci].items[ii].name}"?`)) return;
+  menuData[ci].items.splice(ii,1);
+  markDirty(); renderItemsTable(); renderDashboard();
+}
+
+// ── Image Upload ──
+function handleImageSelect(input) {
+  const file=input.files[0];
+  if (!file) return;
+  pendingImageFile=file;
+  // Generate filename from original name, sanitized
+  const ext=file.name.split('.').pop().toLowerCase();
+  const baseName=file.name.replace(/\.[^.]+$/,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  pendingImageFilename=baseName+'.'+ext;
+  document.getElementById('imageFilename').textContent='📎 '+pendingImageFilename;
+  document.getElementById('fImage').value=pendingImageFilename;
+  // Preview
+  const reader=new FileReader();
+  reader.onload=e=>{ const prev=document.getElementById('imagePreview'); prev.src=e.target.result; prev.style.display='block'; };
+  reader.readAsDataURL(file);
+  document.getElementById('imageUploadArea').classList.add('has-image');
+  document.getElementById('imageUploadArea').querySelector('.image-upload-text').style.display='none';
+}
+
+// ── Item Modal ──
+function openAddItemModal() {
+  document.getElementById('modalTitle').textContent='Add New Item';
+  document.getElementById('editCatIndex').value='';
+  document.getElementById('editItemIndex').value='';
+  document.getElementById('fName').value='';
+  document.getElementById('fDesc').value='';
+  document.getElementById('fPrice').value='';
+  document.getElementById('fImage').value='';
+  document.getElementById('fAvailable').checked=true;
+  document.getElementById('fNonveg').checked=true;
+  resetImageUpload();
+  renderCatFilter();
+  document.getElementById('itemModal').classList.add('open');
+}
+
+function openEditItemModal(ci,ii) {
+  const item=menuData[ci].items[ii];
+  document.getElementById('modalTitle').textContent='Edit Item';
+  document.getElementById('editCatIndex').value=ci;
+  document.getElementById('editItemIndex').value=ii;
+  document.getElementById('fName').value=item.name;
+  document.getElementById('fDesc').value=item.description||'';
+  document.getElementById('fPrice').value=item.price;
+  document.getElementById('fImage').value=item.image||'';
+  document.getElementById('fAvailable').checked=item.available!==false;
+  if (item.veg) document.getElementById('fVeg').checked=true;
+  else document.getElementById('fNonveg').checked=true;
+  resetImageUpload();
+  // Show existing image preview
+  if (item.image) {
+    const prev=document.getElementById('imagePreview');
+    prev.src=`https://raw.githubusercontent.com/${REPO}/${BRANCH}/images/${item.image}`;
+    prev.style.display='block';
+    document.getElementById('imageUploadArea').classList.add('has-image');
+    document.getElementById('imageUploadArea').querySelector('.image-upload-text').style.display='none';
+    document.getElementById('imageFilename').textContent='Current: '+item.image;
+  }
+  renderCatFilter();
+  document.getElementById('fCategory').value=ci;
+  document.getElementById('itemModal').classList.add('open');
+}
+
+function resetImageUpload() {
+  pendingImageFile=null; pendingImageFilename='';
+  document.getElementById('fImageFile').value='';
+  document.getElementById('imagePreview').style.display='none';
+  document.getElementById('imagePreview').src='';
+  document.getElementById('imageFilename').textContent='';
+  document.getElementById('imageUploadArea').classList.remove('has-image');
+  document.getElementById('imageUploadArea').querySelector('.image-upload-text').style.display='block';
+}
+
+function closeItemModal() { document.getElementById('itemModal').classList.remove('open'); resetImageUpload(); }
+
+async function saveItem() {
+  const name=document.getElementById('fName').value.trim();
+  const price=parseInt(document.getElementById('fPrice').value);
+  const ci=parseInt(document.getElementById('fCategory').value);
+  if (!name) { showToast('Enter item name','error'); return; }
+  if (isNaN(price)||price<0) { showToast('Enter valid price','error'); return; }
+  if (isNaN(ci)) { showToast('Select category','error'); return; }
+
+  // Upload image immediately if pending
+  const btn=document.getElementById('saveItemBtn');
+  if (pendingImageFile) {
+    btn.innerHTML='<span class="spinner"></span>Uploading...'; btn.disabled=true;
+    try {
+      await uploadImage(pendingImageFile, pendingImageFilename);
+      pendingImageFile=null;
+      showToast('Image uploaded ✓','success');
+    } catch(e) {
+      showToast('Image upload failed: '+e.message,'error');
+      btn.innerHTML='Save Item'; btn.disabled=false; return;
+    }
+    btn.innerHTML='Save Item'; btn.disabled=false;
+  }
+
+  const item={
+    name, description:document.getElementById('fDesc').value.trim(), price,
+    veg:document.querySelector('input[name="vegNonveg"]:checked').value==='true',
+    image:document.getElementById('fImage').value.trim(),
+    available:document.getElementById('fAvailable').checked
+  };
+
+  const editCi=document.getElementById('editCatIndex').value;
+  const editIi=document.getElementById('editItemIndex').value;
+  if (editCi!==''&&editIi!=='') { menuData[parseInt(editCi)].items.splice(parseInt(editIi),1,item); }
+  else { menuData[ci].items.push(item); }
+
+  markDirty(); closeItemModal(); renderItemsTable(); renderDashboard(); renderCatFilter();
+  showToast(editCi!==''?'Item updated ✓':'Item added ✓','success');
+}
+
+// ── Categories (with drag-and-drop) ──
+let dragSrcCatIndex=-1;
+
+function renderCategories() {
+  const list=document.getElementById('catList');
+  list.innerHTML='';
+  menuData.forEach((cat,ci)=>{
+    const card=document.createElement('div');
+    card.className='cat-card';
+    card.draggable=true;
+    card.dataset.ci=ci;
+    card.innerHTML=`
+      <span class="cat-drag">⠿</span>
+      <input class="cat-name-input" value="${cat.category}" oninput="renameCategory(${ci},this.value)">
+      <span class="cat-count">${cat.items.length} items</span>
+      <button class="btn-del-cat" onclick="deleteCategory(${ci})">🗑</button>`;
+    card.addEventListener('dragstart',e=>{ dragSrcCatIndex=ci; card.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; });
+    card.addEventListener('dragend',()=>{ card.classList.remove('dragging'); document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('drag-over')); });
+    card.addEventListener('dragover',e=>{ e.preventDefault(); e.dataTransfer.dropEffect='move'; card.classList.add('drag-over'); });
+    card.addEventListener('dragleave',()=>card.classList.remove('drag-over'));
+    card.addEventListener('drop',e=>{ e.preventDefault(); card.classList.remove('drag-over'); dropCategory(ci); });
+    list.appendChild(card);
+  });
+}
+
+function dropCategory(targetIndex) {
+  if (dragSrcCatIndex===-1||dragSrcCatIndex===targetIndex) return;
+  const moved=menuData.splice(dragSrcCatIndex,1)[0];
+  menuData.splice(targetIndex,0,moved);
+  dragSrcCatIndex=-1;
+  markDirty(); renderCategories(); renderCatFilter(); renderItemsTable();
+}
+
+function renameCategory(ci,newName) { menuData[ci].category=newName; markDirty(); renderCatFilter(); }
+
+function addCategory() {
+  menuData.push({category:'New Category',items:[]});
+  markDirty(); renderCategories(); renderCatFilter(); renderDashboard();
+  setTimeout(()=>{ const inputs=document.querySelectorAll('.cat-name-input'); const last=inputs[inputs.length-1]; if(last){last.focus();last.select();} },50);
+}
+
+function deleteCategory(ci) {
+  if (!confirm(`Delete "${menuData[ci].category}" and all ${menuData[ci].items.length} items in it?`)) return;
+  menuData.splice(ci,1);
+  markDirty(); renderCategories(); renderCatFilter(); renderItemsTable(); renderDashboard();
+}
+
+// ── Toast ──
+let toastTimer;
+function showToast(msg,type) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='show '+(type||'');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.className='',3000);
+}
+
+// Login enter key
+['tokenInput','repoInput','branchInput'].forEach(id=>document.getElementById(id).addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();}));
+</script>
+</body>
+</html>

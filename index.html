@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delhi Tadka Co. | Direct Order</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="favicon/favicon.png">
+</head>
+<body>
+
+  <div class="announcement">
+    🔥 Flat <span id="discountPercent">20</span>% OFF on Direct Orders
+  </div>
+
+  <header>
+    <img src="logo/logo.png" class="logo" alt="Delhi Tadka Co Logo">
+    <h1>Delhi Tadka Co.</h1>
+    <p>Karahi • Makhani • Tawa Classics</p>
+    <a href="tel:+918860432553" class="call-btn">📞 Call Now</a>
+  </header>
+
+  <main id="menu"></main>
+
+  <div class="cart-button" onclick="openCart()">
+    🛒 Cart (<span id="cartCount">0</span>)
+  </div>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="cart-modal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h2>Your Order</h2>
+        <button class="close-btn" onclick="closeCart()">✕</button>
+      </div>
+      <div id="cartItems"></div>
+      <div id="cartTotal"></div>
+      <button class="whatsapp-btn" onclick="checkout()" disabled>
+        📲 Proceed to Order
+      </button>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="cart-modal">
+    <div class="cart-content checkout-content">
+      <div class="cart-header">
+        <h2>Order Details</h2>
+        <button class="close-btn" onclick="closeCheckoutModal()">✕</button>
+      </div>
+
+      <div id="checkoutScroll">
+        <!-- Name -->
+        <div class="checkout-field">
+          <label class="checkout-label">Your Name *</label>
+          <input type="text" id="customerName" class="checkout-input" placeholder="Enter your name">
+        </div>
+
+        <!-- Pickup or Delivery -->
+        <div class="checkout-field">
+          <label class="checkout-label">Order Type *</label>
+          <div class="order-type-toggle">
+            <button class="type-btn active" id="btnDelivery" onclick="selectOrderType('delivery')">🛵 Delivery</button>
+            <button class="type-btn" id="btnPickup" onclick="selectOrderType('pickup')">🏃 Self Pickup</button>
+          </div>
+        </div>
+
+        <!-- Address (shown only for delivery) -->
+        <div class="checkout-field" id="addressField">
+          <label class="checkout-label">Delivery Address *</label>
+          <textarea id="addressInput" class="checkout-input" rows="3"
+            placeholder="House no., street, area, landmark..."></textarea>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="checkout-field">
+          <label class="checkout-label">Payment Method *</label>
+          <div class="payment-options" id="paymentOptions"></div>
+        </div>
+
+        <!-- UPI id shown when UPI selected -->
+        <div class="upi-box" id="upiBox" style="display:none"></div>
+
+        <!-- Order summary -->
+        <div class="checkout-summary" id="checkoutSummary"></div>
+      </div>
+
+      <button class="whatsapp-btn" onclick="confirmOrder()">
+        📲 Send Order on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
