@@ -463,6 +463,14 @@
         "veg": false,
         "image": "peri-peri-chicken-strips.jpg",
         "available": true
+      },
+      {
+        "name": "Bread Rolls",
+        "description": "2 pieces, Potato and vegetables filled Bread Rolls.",
+        "price": 99,
+        "veg": true,
+        "image": "bread-rolls.jpg",
+        "available": true
       }
     ]
   },
